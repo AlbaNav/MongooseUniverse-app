@@ -23,7 +23,7 @@ const getMessierObject = async (req, res, next) => {
     try {
 
         const { name } = req.params
-        const MessierObjectDB = await MessierObject.find(name);
+        const MessierObjectDB = await MessierObject.find({name});
 console.log(name, MessierObjectDB);
         if (!MessierObjectDB) {
 
