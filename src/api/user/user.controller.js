@@ -8,15 +8,18 @@ const postNewUser = async (req, res, next) => {
     try {
         const newUser = new User(req.body)
         const userExists = await User.findOne({email:newUser.email})
+        console.log(userExists)
         if (userExists) {
             return next(setError(404, 'This user already exists'))
         }
-        const userInBd = await newUser.save();
-        userInBd.password = null
-        return res.status(201).json(userInBd)
+        console.log('mierda')
+        const userDB = await newUser.save();
+        console.log('1')
+        userDB.password = null
+        return res.status(201).json(userDB)
     } catch (error) {
         return next(error)
-        
+        console.log('hola')
     }
 }
 

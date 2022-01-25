@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
-const {ValidationPassword}= require ('../../utils/validation/controller');
+const {validationPassword}= require ('../../utils/validation/controller');
 const {setError}= require('../../utils/error/error');
 
 const UserSchema = new Schema({
@@ -34,12 +34,12 @@ const UserSchema = new Schema({
 
     },
 
-    // collection:'users'
+   
  
 })
 
 UserSchema.pre("save", function(next) {
-    if (!ValidationPassword(this.password)){
+    if (!validationPassword(this.password)){
         return next(setError(400, 'password is not correct'))
     }
 
@@ -47,4 +47,5 @@ UserSchema.pre("save", function(next) {
     next();
 })
 
-module.exports = mongoose.model('User', UserSchema);
+const User = mongoose.model("users", UserSchema); 
+ module.exports = User;
