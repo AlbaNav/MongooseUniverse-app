@@ -1,4 +1,4 @@
-const verifyJwt = require('../utils/jsonwebtoken/jsonwebtoken');
+const { verifyJwt } = require('../utils/jsonwebtoken/jsonwebtoken');
 const User = require('../api/user/user.model');
 const { setError } = require('../utils/error/error');
 
@@ -10,7 +10,7 @@ const isAuth = async (req, res, next) => {
             return next(setError(404, 'Unauthorized'))
         }
         const parsedToken = token.replace('Bearer ', '');
-        const validToken = verifyJwt.verify(parsedToken, process.env.JWT_SECRET)
+        const validToken = verifyJwt(parsedToken, process.env.JWT_SECRET)
         const userLogued = await User.findById(validToken.id)
         userLogued.password = null
         req.user = userLogued

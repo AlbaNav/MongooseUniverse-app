@@ -56,7 +56,7 @@ const logoutUser = (req, res, next) => {
     try {
         
         const token = null;
-        return res.status(200).json(token);
+        return res.status(200).json("now token is: " + token + " u aren't logged now");
 
     } catch (error) {
 
