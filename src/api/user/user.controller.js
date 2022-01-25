@@ -3,6 +3,7 @@ const bcrypt= require('bcrypt');
 const {setError} = require('../../utils/error/error');
 const { generateSign } = require('../../utils/jsonwebtoken/jsonwebtoken')
 
+
 const postNewUser = async (req, res, next) => {
 
     try {
