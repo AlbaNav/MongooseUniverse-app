@@ -1,7 +1,7 @@
 const User = require('./user.model');
-const bcrypt= require('crypt');
+const bcrypt= require('bcrypt');
 const {setError} = require('../../utils/error/error');
-const { generateSign } = require('../../utils/jwt/jwtUtils')
+const { generateSign } = require('../../utils/jsonwebtoken/jsonwebtoken')
 
 const postNewUser = async (req, res, next) => {
 
@@ -15,7 +15,7 @@ const postNewUser = async (req, res, next) => {
         userInBd.password = null
         return res.status(201).json(userInBd)
     } catch (error) {
-        return nest(error)
+        return next(error)
         
     }
 }

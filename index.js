@@ -4,10 +4,10 @@ const cloudinary = require("cloudinary").v2
 const ConstellationsRoutes = require("./src/api/constellation/constellation.routes");
 const MessierObjectsRoutes = require("./src/api/Messier_objects/messier_objects.routes");
 const ObjectTypesRoutes = require("./src/api/object_type/object_type.routes");
-const UsersRoutes = require("./src/api/user/user.routes");
+const UserRoutes = require("./src/api/user/user.routes");
 const { setError } = require("./src/utils/error/error");
 
-const { connectDb } = require("./src/utils/database/db");
+const { connectDb } = require("./src/db/connect");
 
 const PORT = process.env.PORT ||  8080
 
@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 
 });
 
-const documentation = require("./src/utils/documentation/index.json");
+// const documentation = require("./src/utils/documentation/index.json");
 
 app.use(cors({
 
@@ -51,7 +51,7 @@ app.use(express.urlencoded({ limit: '5mb', extended: true }))
 app.use('/api/constellations', ConstellationsRoutes);
 app.use('/api/messierObjects', MessierObjectsRoutes);
 app.use('/api/objectTypes', ObjectTypesRoutes);
-app.use('/api/users', UsersRoutes);
+app.use('/api/users', UserRoutes);
 app.use("/", (req, res, next) => {
 
     return res.json(documentation);

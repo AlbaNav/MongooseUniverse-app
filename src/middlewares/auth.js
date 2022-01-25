@@ -1,6 +1,6 @@
-const JwtControl = require('../utils/jsonwebtoken/controller');
+const JwtControl = require('../utils/jsonwebtoken/jsonwebtoken');
 const User = require('../api/user/user.model');
-const { setError } = require('../utils/error/controller');
+const { setError } = require('../utils/error/error');
 
 
 const isAuth = async (req, res, next) => {
