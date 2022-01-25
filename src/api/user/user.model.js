@@ -6,22 +6,32 @@ const {setError}= require('../../utils/error/error');
 
 let userSchema = new Schema ({
     
-    name:{
+    nickName:{
         type:String,
         required:true,
-        trim: true
+        trim: true,
+        unique: true
     },
 
     email:{
         type: String,
         required:true,
-        trim: true
+        trim: true,
+        unique: true
     },
 
     password:{
         type: String,
         required:true,
         trim:true
+    },
+
+    profileImage: {
+
+        type: String,
+        required: true,
+        trim: true
+
     },
 
     collection:'users'
