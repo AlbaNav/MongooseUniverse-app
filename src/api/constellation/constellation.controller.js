@@ -22,8 +22,8 @@ const getConstellation = async (req, res, next) => {
     try {
 
         const { name } = req.params
-        const ConstellationDB = await Constellation.findOne(name);
-
+        const ConstellationDB = await Constellation.find({name});
+        console.log(name, ConstellationDB)
         if (!ConstellationDB) {
 
             return next(setError(404, "No constellation added"));

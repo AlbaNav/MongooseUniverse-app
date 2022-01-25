@@ -21,8 +21,9 @@ const getObjectType = async (req, res, next) => {
 
     try {
 
-        const { id } = req.params
-        const ObjectTypeDB = await ObjectType.findById(id);
+        const { type } = req.params 
+        console.log(ObjectType)
+        const ObjectTypeDB = await ObjectType.find({type:type.includes(req.params)});
 
         if (!ObjectTypeDB) {
 
