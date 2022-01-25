@@ -1,22 +1,47 @@
 const mongoose= require('mongoose');
 const Schema = mongoose.Schema;
-const {setError} = require('../../utils/error/error');
 
-let messier_objectSchema = new Schema({
+let messierObjectsSchema = new Schema({
 
 
-    name: "",
-    commonName:"" ,
-    type: [],
-    constellation: [],
-    magnitude: "",
-    distance: ""
+    name: {
+        
+        type: String, required: true, trim: true
+
+    },
+    commonName: {
+
+        type: String, required: true, trim: true
+
+    },
+    image: {
+
+        type: String, required: true, trim: true
+
+    },
+    type: {
+        
+        type: Schema.Types.ObjectId, ref:"types", required: true,
+
+    },
+    constellation: {
+        
+        type: Schema.Types.ObjectId, ref:"stars", required: true,
+
+    },
+    magnitude: {
+        
+        type: String, required: true, trim: true
+
+    },
+    distance: {
+        
+        type: Number, required: true, trim: true
+
+    }
 
 });
 
+const messierObject = mongoose.model("messier_object", messierObjectsSchema);
 
-const messier_objectSchema = mongoose.model(messier_object, messier_objectSchema);
-module.exports= messier_object
-
-
-
+module.exports= messierObject;

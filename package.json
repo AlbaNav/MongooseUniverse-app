@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "seedConstellations": "node ./src/utils/seed/constellations.seed",
+    "seedTypes": "node ./src/utils/seed/types.seed",
+    "seedMessier": "node ./src/utils/seed/messierObjects.seed"
   },
   "keywords": [],
   "author": "Santi, Diana, Ricardo y Alba",
