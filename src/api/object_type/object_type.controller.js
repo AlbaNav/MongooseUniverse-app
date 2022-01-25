@@ -21,8 +21,8 @@ const getObjectType = async (req, res, next) => {
 
     try {
 
-        const { type } = req.params
-        const ObjectTypeDB = await ObjectType.findOne(type);
+        const { id } = req.params
+        const ObjectTypeDB = await ObjectType.findById(id);
 
         if (!ObjectTypeDB) {
 

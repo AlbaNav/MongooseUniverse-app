@@ -3,6 +3,6 @@ const { isAdmin } = require("../../middlewares/auth");
 const { getAllObjectTypes, getObjectType } = require("./object_type.controller");
 
 ObjectTypeRoutes.get("/", getAllObjectTypes);
-ObjectTypeRoutes.get("/:type", getObjectType);
+ObjectTypeRoutes.get("/:id", getObjectType);
 
 module.exports = ObjectTypeRoutes;
